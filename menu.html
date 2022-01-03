@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Meal::<input type="text" id="dishes">
+    <button onclick="getdishesname()"> menu </button>
+
+    <div id="dishimg"></div>
+</body>
+</html>
+
+<script>
+    // let url="https://www.themealdb.com/api.php?ref=apilist.fun"
+    let dishes = document.getElementById("dishes") 
+    // document.querySelector("#menu").setAttribute("click",getdishesname)
+    let x =document.getElementById("dishimg")
+  async function getdishesname(){
+       try{
+         
+        let res=await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast")
+
+        let data = await res.json();
+        getdetails(data)
+        console.log(data);
+        }
+          
+    
+       catch(error){
+           console.log("syntax err", error);
+       }
+   }
+
+   function getdetails(array){
+        array.forEach(function(e) {
+            
+        
+            let div =document.createElement("div")
+            let image=document.createElement("img")
+            img.src=e.meals.strMealThumb;
+            let name =document.createElement("p")
+            name.innerText=e.meals.strMeal
+
+            div.append(image,name)
+            x.append(div)
+        });
+   }
+</script>

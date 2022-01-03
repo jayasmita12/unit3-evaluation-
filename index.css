@@ -1,0 +1,14 @@
+#maindiv{
+    border: 1px solid black;
+    width:50%;
+    display: flex;
+    justify-content: space-around;
+    justify-content: flex-end;
+    cursor: pointer;
+    background-color: rgb(27, 26, 26);
+    color:blanchedalmond;
+    
+}
+h3{
+    padding-right: 30px;
+}
